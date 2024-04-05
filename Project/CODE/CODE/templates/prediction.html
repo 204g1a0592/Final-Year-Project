@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Sailor Bootstrap Template - Index</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="static/assets/img/favicon.png" rel="icon">
+  <!--  <link href="static/assets/img/apple-touch-icon.png" rel="apple-touch-icon">-->
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="static/assets/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="static/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="static/assets/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Sailor - v2.3.1
+  * Template URL: https://bootstrapmade.com/sailor-free-bootstrap-theme/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top ">
+    <div class="container d-flex align-items-center">
+
+      <h1 class="logo"><a href="/">Early Forecasting Of Low Birth Weight Cases Using Ensemble Learning</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <a href="index.html" class="logo"><img src="static/assets/img/logo.png" alt="" class="img-fluid"></a>
+
+      <nav class="nav-menu d-none d-lg-block">
+
+        <ul>
+          <li><a href="/loginhomepage">Home</a></li>
+          <li><a href="/load data">Load Data</a></li>
+          <li><a href="/view data">View Data</a></li>
+          <li><a href="/model">Select Model</a></li> 
+          <li class="active"><a href="/prediction">Prediction</a></li>
+          <!-- <li class="active"><a href="/graph">Graph</a></li> -->
+          <li><a href="/">Logout</a> </li>
+
+
+        </ul>
+
+      </nav><!-- .nav-menu -->
+
+
+    </div>
+  </header><!-- End Header -->
+
+  <section id="hero">
+    <div id="heroCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+
+      <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+      <!--      <div class="carousel-inner" role="listbox">-->
+      <div class="carousel-item active" style="background-image: url(static/assets/img/bb2.jpg)">
+        <div class="carousel-container">
+          <div class="container">
+            {%block body %}
+            {% if result == [2] %}
+
+            <h3 style="color:white;background:green;margin-top: 100px;"><i>The baby belongs to "Low birth Weight"</i>
+            </h3>
+            {% elif result == [1] %}
+            <h3 style="color:white;background:green;margin-top: 100px;"><i>The baby not belongs to "Low birth
+                Weight"</i></h3>
+
+            {% endif %}
+            {% endblock %}
+            <h3 style="color:white">Prediction</h3>
+           
+            <form action="{{url_for('prediction')}}" method="post">
+            
+              <table>
+                <tr>
+
+                  <td><label style="color:white;margin-left: 60px;">&nbsp;&nbsp;&nbsp;&nbsp;SEC</label>
+                    <select name="b" style="width:179px;height:30px">
+                            <option value="">Select an option</option>
+                            <option value="0.0">APL</option>
+                             <option value="1.0">BPL</option></select>
+                   
+                  </td>
+                  <td><label style="color:white;margin-left: 30px;">Age(years)</label>
+                    <input type="number" name="c" placeholder="Age 8 - 45" min="8" max="45" style="width: 180px"><br><br>
+                  </td>
+                  <td><label style="color:white;margin-left: 35px;">&nbsp;&nbsp;&nbsp;&nbsp;Height(cm)</label>
+                    <input type="number" name="d" placeholder="Height 10cm - 195cm" min="10" max="195" style="width: 180px"><br><br>
+                  </td>
+                  <td><label style="color:white;margin-left: 60px;">&nbsp;&nbsp;&nbsp;&nbsp;Parity</label>
+                    <input type="number" name="e" step=0.01 placeholder="Parity 0 - 6" max="6" min="0" style="width: 180px"><br><br>
+                  </td>
+                  <td><label style="color:white;margin-left: 60px;">&nbsp;&nbsp;&nbsp;&nbsp;ANC</label>
+                    <input type="number" name="f" placeholder="ANC 1 - 4" min="1" max="4" style="width: 180px"><br><br>
+                  </td>
+                  <td><label style="color:white;margin-left: 60px;">&nbsp;&nbsp;&nbsp;&nbsp;Iwt(kg)</label>
+                    <input type="number" name="g" step=0.01 placeholder="Iwt 30kg - 96kg" min="30" max="96" style="width: 180px"><br><br>
+                  </td>
+                  <td><label style="color:white;margin-left: 20px;">&nbsp;&nbsp;&nbsp;&nbsp;FWt(kg)</label>
+                    <input type="number" name="h" placeholder="FWt 30kg - 100kg" min="30" max="100" style="width: 180px"><br><br>
+                  </td>
+                </tr>
+              </table>
+
+
+              <table>
+                <tr>
+                  <td><label style="color:white;margin-left: 60px;">&nbsp;&nbsp;&nbsp;&nbsp;IBP_sys</label>
+                    <input type="number" name="i" placeholder="IBP_sys 10 - 180" min="10" max="180" style="width: 180px"><br><br>
+                  </td>&nbsp;&nbsp;&nbsp;&nbsp;
+                  <td><label style="color:white;margin-left: 60px;">&nbsp;&nbsp;&nbsp;&nbsp;IBP_dias</label>
+                    <input type="number" name="j" placeholder="IBP_dias 10 - 140 " min="10" max="140" style="width: 180px"><br><br>
+                  </td>
+                  <td><label style="color:white;margin-left: 30px;">&nbsp;&nbsp;&nbsp;&nbsp;FBP_sys</label>
+                    <input type="number" name="k" placeholder="FBP_sys 10 - 180"min="10"max='180' style="width: 180px"><br><br>
+                  </td>
+                  <td><label style="color:white;margin-left: 35px;">&nbsp;&nbsp;&nbsp;&nbsp;FBP_dias</label>
+                    <input type="number" name="l" placeholder="FBP_dias 10 -140" min="10" max="140" style="width: 180px"><br><br>
+                  </td>
+                  <td><label style="color:white;margin-left: 60px;">&nbsp;&nbsp;&nbsp;&nbsp;IHb(gm%)</label>
+                    <input type="number" name="m" step=0.01 placeholder="IHb 1gm - 16gm" min="1" max="16" style="width: 180px"><br><br>
+                  </td>
+                  <td><label style="color:white;margin-left: 60px;">&nbsp;&nbsp;&nbsp;&nbsp;FHb(gm%)</label>
+                    <input type="number" name="n" placeholder="FHb 1gm - 16gm" min="1" max="16" style="width: 180px"style="width: 180px"><br><br>
+                  </td>
+                  <td><label style="color:white;margin-left: 60px;">&nbsp;&nbsp;&nbsp;&nbsp;BS(RBS)</label>
+                    <input type="number" name="o" step=0.01 placeholder="BS(RBS) 1 -400" min="1" max="400" style="width: 180px"><br><br>
+                  </td>
+                </tr>
+              </table>
+              <center><label style="color:white;margin-left: 20px;">&nbsp;&nbsp;&nbsp;&nbsp;Term/Preterm</label>
+                <input type="number" name="p" placeholder="Term/Preterm 0 - 2" min="0" max="2" style="width: 180px"><br><br>
+              </center>
+
+
+              <input type="submit" value="predict" class="btn btn-info">
+
+
+
+            </form>
+
+          </div>
+        </div>
+      </div>
+      <!--      </div>-->
+    </div>
+  </section>
+
+
+
+
+
+
+  <script src="static/assets/vendor/jquery/jquery.min.js"></script>
+  <script src="static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="static/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="static/assets/vendor/php-email-form/validate.js"></script>
+  <script src="static/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="static/assets/vendor/venobox/venobox.min.js"></script>
+  <script src="static/assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+  <script src="static/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="static/assets/js/main.js"></script>
+
+</body>
+
+</html>
